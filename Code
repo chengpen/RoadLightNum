@@ -1,0 +1,75 @@
+using System;
+
+namespace Testwangyi2
+
+{
+
+class Program
+
+{
+
+static void Main(string[] args)
+
+{
+
+int temp = Caculate(11, "...xx....xx");
+
+Console.WriteLine(temp);
+
+Console.ReadKey();
+
+}
+
+    private static int Caculate(int roadLength,string roadStruct)
+
+    {            
+
+        //判断道路长度和构造长度是否相等
+
+        if (roadStruct.Length != roadLength)
+
+            return 0;
+
+
+
+        int lightNum = 0; //路灯数量
+
+        for(int i =0;i<roadStruct.Length;)
+
+        {
+
+            //如果是需要照亮区域则向后跳三格
+
+           //一个灯可以覆盖三格区域
+
+            if(roadStruct[i]=='.')
+
+            {
+
+                lightNum++;
+
+                i += 3;
+
+            }
+
+            else if(roadStruct[i]=='x')
+
+            {
+
+                //如果是不需要照亮区域则向后跳一格
+
+                i++;
+
+            }
+
+        }
+
+
+
+        return lightNum;
+
+    }
+
+}
+
+}
